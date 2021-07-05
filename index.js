@@ -8,7 +8,7 @@ function gitStaticFileServer(simpleGitOptions) {
 
   app.get("/:reference/*", async (req, res, next) => {
     try {
-      const file = req.path.slice(`/${req.params.reference}/`.length);
+      const file = req.params[0];
       res
         // TODO: What happens when there is no extension
         // TODO: What happens when there is a crazy extension for which no MIME type exists
