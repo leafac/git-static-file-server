@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const path = require("path");
 const express = require("express");
 const simpleGit = require("simple-git");
@@ -29,6 +31,9 @@ function gitStaticFileServer(simpleGitOptions) {
 module.exports = gitStaticFileServer;
 
 if (require.main === module) {
-  const app = gitStaticFileServer({ baseDir: __dirname });
-  app.listen(4000);
+  const baseDir = path.resolve(process.argv[2] ?? __dirname);
+  const app = gitStaticFileServer({ baseDir });
+  app.listen(4000, () => {
+    console.log(`Git Static File Server running at port 4000, serving baseDir ${baseDir}`)
+  });
 }
