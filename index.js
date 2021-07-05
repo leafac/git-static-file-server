@@ -9,10 +9,8 @@ function gitStaticFileServer(simpleGitOptions) {
   app.get("/:reference/*", async (req, res, next) => {
     try {
       const file = req.params[0];
+      if (file.trim() === "") return next();
       res
-        // TODO: What happens with just /:reference
-        // TODO: What happens when there is no extension
-        // TODO: What happens when there is a crazy extension for which no MIME type exists
         .type(path.extname(file))
         .send(await git.show([`${req.params.reference}:${file}`]));
     } catch (error) {
