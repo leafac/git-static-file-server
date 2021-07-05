@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "build": "caxa --input . --output \"git-static-file-server.exe\" -- \"{{caxa}}/node_modules/.bin/node\" \"{{caxa}}/index.js\""
+  },
   "dependencies": {
     "express": "^4.17.1",
     "simple-git": "^2.40.0"
