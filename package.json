@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "simple-git": "^2.40.0"
+  },
+  "devDependencies": {
+    "@small-tech/auto-encrypt": "^3.0.1",
+    "caxa": "^2.1.0"
+  }
+}
