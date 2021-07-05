@@ -10,6 +10,7 @@ function gitStaticFileServer(simpleGitOptions) {
     try {
       const file = req.params[0];
       res
+        // TODO: What happens with just /:reference
         // TODO: What happens when there is no extension
         // TODO: What happens when there is a crazy extension for which no MIME type exists
         .type(path.extname(file))
